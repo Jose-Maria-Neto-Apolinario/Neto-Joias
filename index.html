@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -13,19 +14,16 @@
       --destaque: #8F6BBE;
       --texto: #333;
     }
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: 'Quicksand', sans-serif;
     }
-
     body {
       background: url('https://images.unsplash.com/photo-1600185365483-26e579b6fa1f') no-repeat center center fixed;
       background-size: cover;
     }
-
     body::before {
       content: "";
       position: fixed;
@@ -34,63 +32,36 @@
       background-color: rgba(255, 255, 255, 0.85);
       z-index: -1;
     }
-
     header {
       background: var(--roxo-medio);
       color: white;
       text-align: center;
       padding: 2rem 1rem;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      position: relative;
     }
-
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
+    header img {
+      max-width: 120px;
+      margin-bottom: 1rem;
     }
-
-    header p {
-      font-size: 1.2rem;
-    }
-
-    .cart-icon {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background-color: white;
-      color: var(--destaque);
-      padding: 10px 15px;
-      border-radius: 50px;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
-    }
-
     nav {
       background-color: var(--roxo-claro);
       padding: 1rem;
       text-align: center;
     }
-
     nav a {
       margin: 0 15px;
       color: var(--destaque);
       font-weight: bold;
       text-decoration: none;
       font-size: 1.1rem;
+      cursor: pointer;
     }
-
     .container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      display: none;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
-      padding: 2rem 4rem;
-      max-width: 1400px;
-      margin: auto;
-      max-height: 80vh;
-      overflow-y: auto;
+      padding: 2rem;
     }
-
     .produto {
       background-color: white;
       border-radius: 12px;
@@ -99,121 +70,80 @@
       text-align: center;
       transition: transform 0.2s ease;
     }
-
-    .produto:hover {
-      transform: translateY(-5px);
-    }
-
     .produto img {
       max-width: 100%;
       border-radius: 10px;
       margin-bottom: 1rem;
     }
-
     .produto h3 {
       color: var(--destaque);
       margin: 0.5rem 0;
     }
-
     .produto p {
       margin-bottom: 1rem;
-      font-size: 1.1rem;
     }
-
     button {
       background-color: var(--destaque);
       color: white;
       border: none;
       padding: 10px 20px;
       border-radius: 8px;
-      font-size: 1rem;
       cursor: pointer;
-      transition: background 0.3s ease;
     }
-
-    button:hover {
-      background-color: var(--roxo-escuro);
-    }
-
     footer {
       background-color: var(--roxo-medio);
       color: white;
       text-align: center;
       padding: 1rem;
-      margin-top: 2rem;
     }
-
-    .cart-modal {
+    #contato {
       display: none;
-      position: fixed;
-      top: 80px;
-      right: 20px;
-      background-color: white;
-      border: 1px solid var(--roxo-escuro);
-      border-radius: 10px;
-      padding: 20px;
-      width: 300px;
-      max-height: 400px;
-      overflow-y: auto;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-      z-index: 1000;
+      text-align: center;
+      padding: 2rem;
     }
-
-    .cart-modal h2 {
-      margin-bottom: 15px;
-      color: var(--destaque);
-    }
-
-    .cart-item {
-      margin-bottom: 10px;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 8px;
-    }
-
-    .cart-total {
-      font-weight: bold;
-      margin-top: 10px;
-      text-align: right;
-    }
-
-    @media(max-width: 768px) {
+    @media(max-width: 600px) {
       nav a {
         display: block;
         margin: 10px 0;
-      }
-
-      .container {
-        padding: 1rem;
-      }
-
-      .cart-modal {
-        width: 90%;
-        right: 5%;
       }
     }
   </style>
 </head>
 <body>
   <header>
+    <img src="logo.png" alt="Logo Neto Joias" />
     <h1>Neto Joias</h1>
-    <p>Brilhe com elegância</p>
+    <p>Beleza refinada com um toque mágico</p>
   </header>
-
   <nav>
-    <a href="#inicio">Início</a>
-    <a href="#produtos">Produtos</a>
-    <a href="#contato">Contato</a>
+    <a onclick="mostrar('inicio')">Início</a>
+    <a onclick="mostrar('produtos')">Produtos</a>
+    <a onclick="mostrar('contato')">Contato</a>
   </nav>
-
-  <main class="container" id="produtos">
-    <p style="text-align:center; font-size:1.2rem; color: var(--texto); grid-column: 1 / -1;">
-      Em breve mais novidades! Acompanhe nosso catálogo nas redes sociais.
-    </p>
-  </main>
-
-  <footer id="contato">
-    <p>Fale conosco: <a href="https://wa.me/5534984010545" style="color:white">(34) 98401-0545</a></p>
-    <p>&copy; 2025 Neto Joias. Todos os direitos reservados.</p>
+  <div id="inicio" class="container" style="display: grid; place-items: center;">
+    <img src="logo.png" alt="Logo Neto Joias" style="max-width: 200px;" />
+  </div>
+  <div id="produtos" class="container">
+    <div class="produto">
+      <img src="https://images.unsplash.com/photo-1600185365483-26e579b6fa1f" alt="Anel de Ouro">
+      <h3>Anel de Ouro</h3>
+      <p>R$ 1299.00</p>
+      <a href="https://wa.me/5534984010545?text=Quero%20comprar%20um%20anel%20de%20ouro" target="_blank"><button>Finalizar Compra</button></a>
+    </div>
+  </div>
+  <div id="contato">
+    <h2>Fale conosco pelo WhatsApp</h2>
+    <p><a href="https://wa.me/5534984010545" target="_blank">Clique aqui para falar no WhatsApp</a></p>
+  </div>
+  <footer>
+    <p>&copy; 2025 Neto Joias - Todos os direitos reservados</p>
   </footer>
+  <script>
+    function mostrar(secao) {
+      document.querySelectorAll('.container, #contato').forEach(e => e.style.display = 'none');
+      document.getElementById(secao).style.display = 'grid';
+    }
+    window.onload = () => mostrar('inicio');
+  </script>
 </body>
 </html>
