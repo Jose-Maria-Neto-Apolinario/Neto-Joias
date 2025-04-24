@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neto Joias</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --roxo-claro: #E6E0F8cc;
+      --roxo-medio: #C3B1E1dd;
+      --roxo-escuro: #A18BD0;
+      --destaque: #8F6BBE;
+      --texto: #333;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Quicksand', sans-serif;
+    }
+    body {
+      background: url('https://images.unsplash.com/photo-1600185365483-26e579b6fa1f') no-repeat center center fixed;
+      background-size: cover;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(255, 255, 255, 0.85);
+      z-index: -1;
+    }
+    header {
+      background: var(--roxo-medio);
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    header img {
+      max-width: 120px;
+      margin-bottom: 1rem;
+    }
+    nav {
+      background-color: var(--roxo-claro);
+      padding: 1rem;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 15px;
+      color: var(--destaque);
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+    .container {
+      display: none;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+    }
+    .produto {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+    .produto img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+    .produto h3 {
+      color: var(--destaque);
+      margin: 0.5rem 0;
+    }
+    .produto p {
+      margin-bottom: 1rem;
+    }
+    button {
+      background-color: var(--destaque);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    footer {
+      background-color: var(--roxo-medio);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+    #contato {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+    }
+    @media(max-width: 600px) {
+      nav a {
+        display: block;
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Logo Neto Joias" />
+    <h1>Neto Joias</h1>
+    <p>Beleza refinada com um toque mágico</p>
+  </header>
+  <nav>
+    <a onclick="mostrar('inicio')">Início</a>
+    <a onclick="mostrar('produtos')">Produtos</a>
+    <a onclick="mostrar('contato')">Contato</a>
+  </nav>
+  <div id="inicio" class="container" style="display: grid; place-items: center;">
+    <img src="logo.png" alt="Logo Neto Joias" style="max-width: 200px;" />
+  </div>
+  <div id="produtos" class="container">
+    <div class="produto">
+      <img src="https://images.unsplash.com/photo-1600185365483-26e579b6fa1f" alt="Anel de Ouro">
+      <h3>Anel de Ouro</h3>
+      <p>R$ 1299.00</p>
+      <a href="https://wa.me/5534984010545?text=Quero%20comprar%20um%20anel%20de%20ouro" target="_blank"><button>Finalizar Compra</button></a>
+    </div>
+  </div>
+  <div id="contato">
+    <h2>Fale conosco pelo WhatsApp</h2>
+    <p><a href="https://wa.me/5534984010545" target="_blank">Clique aqui para falar no WhatsApp</a></p>
+  </div>
+  <footer>
+    <p>&copy; 2025 Neto Joias - Todos os direitos reservados</p>
+  </footer>
+  <script>
+    function mostrar(secao) {
+      document.querySelectorAll('.container, #contato').forEach(e => e.style.display = 'none');
+      document.getElementById(secao).style.display = 'grid';
+    }
+    window.onload = () => mostrar('inicio');
+  </script>
+</body>
+</html>
